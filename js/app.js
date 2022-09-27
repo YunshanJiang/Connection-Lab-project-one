@@ -4,14 +4,9 @@ let date = new Date();
 let year;
 let month;
 let day;
-
+let jsonData;
 window.addEventListener("load", function(){
-    fetch('astro.json')
-    .then(response => response.json())
-    .then(data => console.log(data.people))
-    .catch(function(e){
-console.log(e);
-    });
+    
 });
 let dailyInfo = function(year,month,day,imgPath){
     this.year = year;
@@ -20,10 +15,10 @@ let dailyInfo = function(year,month,day,imgPath){
     this.imgPath=imgPath;
 };
 let dailyInfoList = [];
-$( document ).ready(function() {
+$( document ).ready(async function() {
     
     setDate();
-    initializeDailyList();
+    jsonData = await initializeDailyList();
     loadData();
 });
 
@@ -37,13 +32,14 @@ function setDate(){
 }
 
 
-function initializeDailyList(){
-    dailyInfoList.push(new dailyInfo("2022","09","18", 
-    ["resource/p1.png","resource/p2.png","resource/p3.png"]));
-    dailyInfoList.push(new dailyInfo("2022","09","19", 
-    ["resource/p1.png","resource/p2.png"]));
-    dailyInfoList.push(new dailyInfo("2022","09","20", 
-    ["resource/p1.png"]));
+async function initializeDailyList(){
+
+    return fetch('../data/image.json')
+    .then(response => response.json())
+    .then(data => data)
+    .catch(function(e){
+console.log(e);
+    });
    
 }
 
@@ -51,17 +47,17 @@ function loadData(){
     $("#middle").empty();
     $("#middle").append("<div ></div>");
     $("#middle>div").append("<img class='middleImg' src='resource/backGroundWhite.png'>");
-    for (let i = 0;i<dailyInfoList.length;i++){
-        if (dailyInfoList[i].year == year &&
-             dailyInfoList[i].month == month &&
-              dailyInfoList[i].day == day){
+    for (let i = 0;i<jsonData.dateData.length;i++){
+        if (jsonData.dateData[i].year == year &&
+            jsonData.dateData[i].month == month &&
+            jsonData.dateData[i].day == day){
                 
-                for (let j = 0;j<dailyInfoList[i].imgPath.length;j++)
+                for (let j = 0;j<jsonData.dateData[i].imgPath.length;j++)
                 {
                     
                    
                 $("#middle").append("<img class='middleImg' src="
-                 + dailyInfoList[i].imgPath[j] + ">");
+                 + jsonData.dateData[i].imgPath[j] + ">");
               }
     }
 }
