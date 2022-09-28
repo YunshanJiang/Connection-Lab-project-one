@@ -34,7 +34,7 @@ function setDate(){
 
 async function initializeDailyList(){
 
-    return fetch('./../data/image.json')
+    return fetch('https://yunshanjiang.github.io/Connection-Lab-project-one/data/image.json')
     .then(response => response.json())
     .then(data => data)
     .catch(function(e){
