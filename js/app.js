@@ -6,7 +6,7 @@ let month;
 let day;
 let jsonData;
 window.addEventListener("load", function(){
-    
+    console.log(localStorage.getItem("Uname"));
 });
 let dailyInfo = function(year,month,day,imgPath){
     this.year = year;

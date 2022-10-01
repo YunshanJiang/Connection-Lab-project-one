@@ -1,0 +1,38 @@
+{
+    "userReminds": [
+        {
+            "username": "admin",
+            "remindText": [
+                {
+                    "year": "2022",
+                    "month": "09",
+                    "day": "18",
+                    "text": "I am happy:)"
+                },
+                {
+                    "year": "2022",
+                    "month": "09",
+                    "day": "19",
+                    "text": "Hello World:)"
+                }
+            ]
+        },
+        {
+            "username": "admin2",
+            "remindText": [
+                {
+                    "year": "2022",
+                    "month": "09",
+                    "day": "18",
+                    "text": "I am happy:)"
+                },
+                {
+                    "year": "2022",
+                    "month": "09",
+                    "day": "19",
+                    "text": "Hello World:)"
+                }
+            ]
+        }
+    ]
+}
