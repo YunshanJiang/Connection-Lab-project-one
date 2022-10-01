@@ -8,8 +8,23 @@ let reminderJsonData;
 let userName;
 let remindTexts;
 window.addEventListener("load", function(){
+ 
     
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else { 
+          this.window.alert("Geolocation is not supported by this browser.");
+        }
+      
+      
+      
 });
+
+function showPosition(position) {
+    this.window.alert(position.coords.latitude + ", " +  position.coords.longitude);
+  
+  }
+
 let dailyInfo = function(year,month,day,imgPath){
     this.year = year;
     this.month= month;
@@ -54,7 +69,7 @@ function loadData(){
         userName = localStorage.getItem("Uname");
         for (let i = 0;i<reminderJsonData.userReminds.length;i++)
         {
-            console.log(reminderJsonData);
+            
             if (reminderJsonData.userReminds[i].username==userName)
                 remindTexts = reminderJsonData.userReminds[i].remindText;
         }
