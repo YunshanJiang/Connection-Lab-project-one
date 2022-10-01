@@ -95,7 +95,10 @@ a{
      
 }
 #middle>div{
-
+    background-image: url('../resource/backGroundWhite.png');
+    border-radius: 48px;
+    width: 529px;
+    height: 386px;
 }
 .middleImg{
    

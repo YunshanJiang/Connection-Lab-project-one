@@ -46,7 +46,7 @@ console.log(e);
 function loadData(){
     $("#middle").empty();
     $("#middle").append("<div ></div>");
-    $("#middle>div").append("<img class='middleImg' src='resource/backGroundWhite.png'>");
+    //$("#middle>div").append("<img class='middleImg' src='resource/backGroundWhite.png'>");
     for (let i = 0;i<jsonData.dateData.length;i++){
         if (jsonData.dateData[i].year == year &&
             jsonData.dateData[i].month == month &&
