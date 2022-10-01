@@ -99,6 +99,7 @@ a{
     border-radius: 48px;
     width: 529px;
     height: 386px;
+    overflow: scroll;
 }
 .middleImg{
    
@@ -106,7 +107,18 @@ a{
     width: 529px;
 height: 386px;
 }
+#reminder{
+    padding: 0px 48px;
+    text-align: center;
+    font-size: 50px;
+    margin: 20px;
+}
+#reminderTextDiv{
+    padding: 0 20px;
+    word-break: break-all;
+    font-size: 30px;
 
+}
 #bottom{
     font-size: 30px;
     background-color: #9D9D9D;

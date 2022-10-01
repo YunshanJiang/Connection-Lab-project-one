@@ -4,9 +4,11 @@ let date = new Date();
 let year;
 let month;
 let day;
-let jsonData;
+let reminderJsonData;
+let userName;
+let remindTexts;
 window.addEventListener("load", function(){
-    console.log(localStorage.getItem("Uname"));
+    
 });
 let dailyInfo = function(year,month,day,imgPath){
     this.year = year;
@@ -15,10 +17,10 @@ let dailyInfo = function(year,month,day,imgPath){
     this.imgPath=imgPath;
 };
 let dailyInfoList = [];
-$( document ).ready(async function() {
+$(document).ready(async function() {
     
     setDate();
-    jsonData = await initializeDailyList();
+    reminderJsonData = await initializeDailyList();
     loadData();
 });
 
@@ -34,7 +36,7 @@ function setDate(){
 
 async function initializeDailyList(){
 
-    return fetch('https://yunshanjiang.github.io/Connection-Lab-project-one/data/image.json')
+    return fetch('https://yunshanjiang.github.io/Connection-Lab-project-one/data/reminder.json')
     .then(response => response.json())
     .then(data => data)
     .catch(function(e){
@@ -46,19 +48,25 @@ console.log(e);
 function loadData(){
     $("#middle").empty();
     $("#middle").append("<div ></div>");
-    //$("#middle>div").append("<img class='middleImg' src='resource/backGroundWhite.png'>");
-    for (let i = 0;i<jsonData.dateData.length;i++){
-        if (jsonData.dateData[i].year == year &&
-            jsonData.dateData[i].month == month &&
-            jsonData.dateData[i].day == day){
+    $("#middle>div").append(
+        "<p id='reminder'>Reminder</p><div id='reminderTextDiv'><p2 id='reminderText'></p2></div>"
+        );
+        userName = localStorage.getItem("Uname");
+        for (let i = 0;i<reminderJsonData.userReminds.length;i++)
+        {
+            console.log(reminderJsonData);
+            if (reminderJsonData.userReminds[i].username==userName)
+                remindTexts = reminderJsonData.userReminds[i].remindText;
+        }
+        
+        //console.log(remindTexts);
+    for (let i = 0;i<remindTexts.length;i++){
+        if (remindTexts[i].year == year &&
+            remindTexts[i].month == month &&
+            remindTexts[i].day == day){
+               
+                $("#reminderText").text(remindTexts[i].text);
                 
-                for (let j = 0;j<jsonData.dateData[i].imgPath.length;j++)
-                {
-                    
-                   
-                $("#middle").append("<img class='middleImg' src="
-                 + jsonData.dateData[i].imgPath[j] + ">");
-              }
     }
 }
 }
