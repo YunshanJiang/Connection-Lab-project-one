@@ -41,10 +41,14 @@ $(document).ready(async function() {
     loadData();
     
     getweatherData();
-    
+    //setWeather();
    
 });
 
+function setWeather(){
+    console.log(maxTemp);
+    $("#weatherText").text(`maxTemp: ${maxTemp} minTemp:${minTemp}`);
+}
 
 function setDate(){
    
@@ -120,8 +124,9 @@ function getweatherData(){
        
         maxTemp = fToC(data.days[0].tempmax);
         minTemp = fToC(data.days[0].tempmin);
-        console.log(data);
-       
+        console.log(maxTemp);
+        $("#weatherText").text(`maxTemp: ${maxTemp.toFixed(2)} minTemp:${minTemp.toFixed(2)}`);
+    
         
         isloaded = true;})
     .catch(function(e){

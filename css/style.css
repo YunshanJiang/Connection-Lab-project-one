@@ -67,7 +67,14 @@ a{
     /* transform: translateY(-50%);*/
 }
 #showCbutton{
+    display: block;
+    /* text-align: center; */
+    margin: auto;
+    padding: 20px;
+}
+#weatherText{
     display: inline-block;
+    font-size: 25px;
 }
 #title{
     position: relative;

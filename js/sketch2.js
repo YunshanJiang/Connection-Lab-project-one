@@ -2,7 +2,6 @@ const canvasWidth = 512;
 const canvasHeight = 384;
 function setup() {
     let cnv = createCanvas(canvasWidth, canvasHeight);
-    console.log(cnv);
     cnv.parent("reminderBlock");
    cnv.id('sencondCanvas'); 
    
