@@ -1,10 +1,13 @@
+const canvasWidth = 512;
+const canvasHeight = 384;
 function setup() {
-    createCanvas(window.innerWidth, window.innerHeight);
-    
-    
+    let cnv = createCanvas(canvasWidth, canvasHeight);
+    cnv.parent("reminderBlock");
+   cnv.id('sencondCanvas'); 
+   
   }
-  
-  function draw() {
+
+function draw(){
     if (isloaded)
     {
       for (let i = 0; i < height; i++) {
@@ -21,6 +24,8 @@ function setup() {
       isloaded = false;
     }
   }
+
+
 
   function calColor(m){
     if (m > 0){
